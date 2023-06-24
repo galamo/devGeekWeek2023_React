@@ -37,7 +37,6 @@
 - JSX is an Expression
 - Specifying Attributes with JSX
 - Specifying Children with JSX
-- JSX Prevents Injection Attacks
 - JSX Represents Objects
 
 #### Rendering Elements
