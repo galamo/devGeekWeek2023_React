@@ -8,10 +8,16 @@
 - [Products](https://dummyjson.com/docs/products/)
 - [Countries](https://restcountries.com/v3.1/all)
 
-#### Creating React Typescript Application
+#### Creating React Typescript Application - create app
 - `npx create-react-app react-client --template typescript`
 - `cd react-client`
 - `npm start`
+
+- #### Creating React Typescript Application - Vite
+- `npm create vite@latest`
+- follow CLI
+
+- 
 #### packages
 1. https://mui.com/material-ui/getting-started/installation/
 `npm install @mui/material @emotion/react @emotion/styled`
