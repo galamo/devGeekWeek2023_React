@@ -13,11 +13,10 @@
 - `cd react-client`
 - `npm start`
 
-- #### Creating React Typescript Application - Vite
+ #### Creating React Typescript Application - Vite
 - `npm create vite@latest`
 - follow CLI
 
-- 
 #### packages
 1. https://mui.com/material-ui/getting-started/installation/
 `npm install @mui/material @emotion/react @emotion/styled`
@@ -120,3 +119,5 @@ based on your information
 - Store the result in your local state - use `useState`
 
 
+### EX-6
+Do you see this?
