@@ -5,7 +5,7 @@ interface IProps {
 }
 export function Header(props: IProps) {
     const { text, color = "red" } = props;
-    return <h1 style={{ color: color }}>
+    return <h1 style={{ color: color }} >
         {text}
     </h1>
 }
