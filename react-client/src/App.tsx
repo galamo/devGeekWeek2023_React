@@ -1,11 +1,13 @@
 import './App.css'
-import { useState } from "react"
-import { Header } from './components/ui-components/header'
+import { Suspense, lazy } from "react"
 import CountriesPage from './components/pages/countries'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { Button } from 'primereact/button'
 import LoginForm from './components/pages/login'
 import NotFound from './components/pages/not-found'
+import { Loader } from './components/ui-components/loader'
+
+const LazyCountries = lazy(() => import("./components/pages/countries"))
+const LazyLogin = lazy(() => import("./components/pages/login"))
 
 interface IRoute {
     path: string,
@@ -16,13 +18,13 @@ interface IRoute {
 const routes: Array<IRoute> = [
     {
         path: "/login",
-        component: <LoginForm />,
+        component: <LazyLogin />,
         key: "login",
         label: "Login"
     },
     {
         path: "/countries",
-        component: <CountriesPage />,
+        component: <LazyCountries />,
         key: "countries",
         label: "Countries"
     },
@@ -41,11 +43,13 @@ function App() {
                 {routes.filter(r => r.label).map((route: IRoute) => {
                     return <Link key={route.label} to={route.path} > {route.label} </Link>
                 })}
-                <Routes>
-                    {routes.map((route: IRoute) => {
-                        return <Route path={route.path} key={route.key} element={route.component} />
-                    })}
-                </Routes>
+                <Suspense fallback={<Loader />}>
+                    <Routes>
+                        {routes.map((route: IRoute) => {
+                            return <Route path={route.path} key={route.key} element={route.component} />
+                        })}
+                    </Routes>
+                </Suspense>
             </BrowserRouter>
         </div>
     )
